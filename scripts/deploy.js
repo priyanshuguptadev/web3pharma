@@ -5,7 +5,7 @@ function saveFrontendFiles(contract, chainId) {
   const deploymentsDir = path.join(
     __dirname,
     "..",
-    "client",
+    "frontend",
     "src",
     "artifacts"
   );
