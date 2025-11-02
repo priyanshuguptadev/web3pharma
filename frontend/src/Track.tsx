@@ -161,6 +161,7 @@ function Track() {
     obj: Medicine
   ) => {
     event.preventDefault();
+    console.log("Tracking details for ID:", ID, obj);
     setID(ID);
     setSelectedRec(obj);
     setShowMain(false);
@@ -413,7 +414,7 @@ function Track() {
                 <div
                   className="absolute left-8 top-0 w-1 bg-indigo-600 transition-all duration-500"
                   style={{
-                    height: `${((selectedRec?.stage || 0) / 5) * 100}%`,
+                    height: `100%`,
                   }}
                 ></div>
 

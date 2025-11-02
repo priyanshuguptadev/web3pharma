@@ -21,14 +21,14 @@ function NavBar() {
   };
 
   const navLinks = [
-    { path: "/register", label: "Register", icon: "📋" },
-    { path: "/order-medicine", label: "Order Medicines", icon: "💊" },
+    { path: "/register", label: "Register", icon: "" },
+    { path: "/order-medicine", label: "Order Medicines", icon: "" },
     {
       path: "/control-supply-chain",
       label: "Control Supply Chain",
-      icon: "⚙️",
+      icon: "",
     },
-    { path: "/track-medicine", label: "Track Medicines", icon: "📦" },
+    { path: "/track-medicine", label: "Track Medicines", icon: "" },
   ];
 
   return (

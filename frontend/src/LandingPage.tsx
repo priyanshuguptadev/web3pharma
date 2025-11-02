@@ -66,17 +66,6 @@ function LandingPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-4">
       <div className="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div className="bg-linear-to-r from-indigo-600 to-purple-600 p-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Pharmaceutical Supply Chain
-          </h1>
-          <p className="text-indigo-200 text-lg max-w-2xl mx-auto">
-            The pharmaceutical supply chain involves the process of sourcing raw
-            materials, manufacturing, distributing, and delivering medications
-            to consumers.
-          </p>
-        </div>
-
         <div className="p-8">
           <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
             <div className="flex items-center justify-between mb-4">

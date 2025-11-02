@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import SupplyChainABI from "./artifacts/contracts/SupplyChain.sol/SupplyChain.json";
+import { FaIndustry, FaTruck, FaWarehouse, FaStore } from "react-icons/fa";
+import type { JSX } from "react";
 
 interface TableRecord {
   id: number;
@@ -18,7 +20,7 @@ interface CardData {
   control: string;
   type: string;
   addMethod: string;
-  image: string;
+  icon: JSX.Element;
   buttonText: string;
 }
 
@@ -159,7 +161,6 @@ function Register() {
 
       await loadBlockchaindata(true);
 
-      // Clear form
       setAddress("");
       setName("");
       setPlace("");
@@ -175,8 +176,7 @@ function Register() {
       control: "rmsCtr",
       type: "RMS",
       addMethod: "addRMS",
-      image:
-        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&auto=format&fit=crop",
+      icon: <FaIndustry />,
       buttonText: "Add Raw Material Suppliers",
     },
     {
@@ -184,8 +184,7 @@ function Register() {
       control: "manCtr",
       type: "MAN",
       addMethod: "addManufacturer",
-      image:
-        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&auto=format&fit=crop",
+      icon: <FaWarehouse />,
       buttonText: "Add Manufacturers",
     },
     {
@@ -193,8 +192,7 @@ function Register() {
       control: "disCtr",
       type: "DIS",
       addMethod: "addDistributor",
-      image:
-        "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=500&auto=format&fit=crop",
+      icon: <FaTruck />,
       buttonText: "Add Distributors",
     },
     {
@@ -202,8 +200,7 @@ function Register() {
       control: "retCtr",
       type: "RET",
       addMethod: "addRetailer",
-      image:
-        "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=500&auto=format&fit=crop",
+      icon: <FaStore />,
       buttonText: "Add Retailers",
     },
   ];
@@ -218,7 +215,7 @@ function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+    <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
         {showMain ? (
           <>
@@ -228,33 +225,24 @@ function Register() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {cards.map((card, index) => (
                 <div
+                  onClick={() =>
+                    clickOnCard(
+                      card.control,
+                      card.type,
+                      card.addMethod,
+                      card.title
+                    )
+                  }
                   key={index}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                  className="bg-white rounded-lg shadow-sm overflow-hidden transform transition-all duration-300 hover:cursor-pointer"
                 >
                   <div className="h-48 overflow-hidden">
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                      {card.title}
-                    </h3>
-                    <button
-                      onClick={() =>
-                        clickOnCard(
-                          card.control,
-                          card.type,
-                          card.addMethod,
-                          card.title
-                        )
-                      }
-                      className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out"
-                    >
-                      {card.buttonText}
-                    </button>
+                    <div className="flex flex-col items-center justify-center h-48 bg-white">
+                      <span className="text-6xl text-indigo-600">
+                        {card.icon}
+                      </span>
+                      <h3 className="text-md text-black mb-4">{card.title}</h3>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -262,7 +250,6 @@ function Register() {
           </>
         ) : (
           <>
-            {/* Breadcrumb */}
             <nav className="flex mb-6" aria-label="Breadcrumb">
               <ol className="inline-flex items-center space-x-1 md:space-x-3">
                 <li className="inline-flex items-center">
