@@ -43,14 +43,7 @@ const stageColors = [
   "bg-green-500",
 ];
 
-const stageIcons = [
-  "📦", // Medicine Order
-  "🏭", // Raw Material Supplier
-  "⚙️", // Manufacturer
-  "🚚", // Distributor
-  "🏪", // Retailer
-  "✅", // Consumer
-];
+const stageIcons = ["📦", "🏭", "⚙️", "🚚", "🏪", "✅"];
 
 function Track() {
   const [showMain, setShowMain] = useState<boolean>(true);
@@ -177,7 +170,7 @@ function Track() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6 mt-20">
       <div className="max-w-7xl mx-auto">
         {showMain ? (
           <>

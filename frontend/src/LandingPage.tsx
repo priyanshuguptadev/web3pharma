@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
+import Services from "./components/Services";
+import Testimonials from "./components/Testimonials";
+import EducationCTA from "./components/EducationCTA";
+import Hero from "./components/Hero";
 
 declare global {
   interface Window {
@@ -64,44 +68,12 @@ function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-4">
-      <div className="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div className="p-8">
-          <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-800">
-                Wallet Connection
-              </h2>
-              <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-            </div>
-
-            <div className="mt-6">
-              <p className="text-gray-600 font-medium">
-                Current Account Address:
-              </p>
-              <div className="mt-2 p-4 bg-white rounded-lg border border-gray-300 break-all">
-                {loading ? (
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 border-t-2 border-indigo-600 rounded-full animate-spin mr-2"></div>
-                    <span className="text-gray-500">
-                      Connecting to wallet...
-                    </span>
-                  </div>
-                ) : error ? (
-                  <span className="text-red-500 font-medium">{error}</span>
-                ) : currentaccount ? (
-                  <span className="text-indigo-600 font-mono">
-                    {currentaccount}
-                  </span>
-                ) : (
-                  <span className="text-gray-400">No account connected</span>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Hero currentAddress={currentaccount} />
+      <Services />
+      <Testimonials />
+      <EducationCTA currentAddress={currentaccount} />
+    </>
   );
 }
 

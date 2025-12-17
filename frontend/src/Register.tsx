@@ -157,6 +157,7 @@ function Register() {
       if (!SupplyChain) return;
 
       const tx = await SupplyChain[addMethod](address, name, place);
+      console.log("Transaction sent:", tx.hash);
       await tx.wait();
 
       await loadBlockchaindata(true);
@@ -215,7 +216,7 @@ function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50 p-6 mt-20">
       <div className="max-w-7xl mx-auto">
         {showMain ? (
           <>

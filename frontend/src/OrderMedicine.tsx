@@ -132,7 +132,7 @@ function OrderMedicine() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 p-6">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 p-6 mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
           <h2 className="text-3xl font-bold text-indigo-700 mb-6 text-center">
